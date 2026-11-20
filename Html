@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUCCESS GATE JAMB & WAEC TUTORIAL</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #222;
+}
+header {
+  background: #063b27;
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+}
+nav {
+  background: #075b3b;
+  padding: 14px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 8px;
+  display: inline-block;
+}
+.hero {
+  padding: 40px 20px;
+  text-align: center;
+  background: #e0f2e9;
+}
+button {
+  background: #087443;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+section {
+  padding: 25px 18px;
+  margin: 15px;
+  background: white;
+  border-radius: 10px;
+}
+.card {
+  background: #f1f7f3;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 8px;
+}
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+footer {
+  background: #063b27;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>SUCCESS GATE</h1>
+<p>JAMB & WAEC TUTORIAL</p>
+<p>Your Gateway to Academic Excellence</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#lessons">Lessons</a>
+<a href="#videos">Video Lessons</a>
+<a href="#mock">CBT Mock</a>
+<a href="#register">Register</a>
+<a href="#admin">Admin</a>
+</nav>
+
+<div class="hero" id="home">
+<h2>WELCOME TO SUCCESS GATE</h2>
+<p>Prepare for JAMB and WAEC with confidence.</p>
+<p>Learn. Practise. Succeed.</p>
+<button onclick="location.href='#lessons'">
+Start Learning
+</button>
+</div>
+
+<section id="register">
+<h2>Student Registration</h2>
+
+<input id="studentName" placeholder="Full Name">
+<input id="studentEmail" type="email" placeholder="Email Address">
+
+<select id="studentClass">
+<option value="">Select Examination</option>
+<option>JAMB</option>
+<option>WAEC</option>
+</select>
+
+<button onclick="registerStudent()">Register</button>
+<p id="registrationMessage"></p>
+</section>
+
+<section id="lessons">
+<h2>📚 Learning Centre</h2>
+<p>Access your academic lessons here.</p>
+<div id="lessonList">
+<p>No lessons published yet.</p>
+</div>
+</section>
+
+<section id="videos">
+<h2>🎥 Video Lessons</h2>
+<div id="videoList">
+<p>No video lessons published yet.</p>
+</div>
+</section>
+
+<section id="mock">
+<h2>📝 JAMB CBT MOCK EXAMINATION</h2>
+<p>Test your preparation with our CBT practice.</p>
+
+<p id="examStatus">Examination is currently closed.</p>
+
+<button onclick="startExam()">Start Mock Examination</button>
+
+<div id="examArea" class="hidden">
+<h3>Practice Question</h3>
+<p>Which of the following is a noun?</p>
+
+<label><input type="radio" name="answer" value="A"> Quickly</label>
+<label><input type="radio" name="answer" value="B"> School</label>
+<label><input type="radio" name="answer" value="C"> Beautiful</label>
+<label><input type="radio" name="answer" value="D"> Run</label>
+
+<button onclick="submitExam()">Submit Answer</button>
+<p id="examResult"></p>
+</div>
+</section>
+
+<section id="admin">
+<h2>🔐 Admin Dashboard</h2>
+<p>Administrative controls for the tutorial.</p>
+
+<input type="password" id="adminPassword" placeholder="Admin PIN">
+<button onclick="loginAdmin()">Login</button>
+
+<div id="adminPanel" class="hidden">
+
+<h3>Publish New Lesson</h3>
+
+<input id="lessonTitle" placeholder="Lesson Title">
+<textarea id="lessonDescription" placeholder="Write lesson content"></textarea>
+
+<button onclick="publishLesson()">Publish Lesson</button>
+
+<hr>
+
+<h3>Publish Video Lesson</h3>
+
+<input id="videoTitle" placeholder="Video Title">
+<input id="videoURL" placeholder="YouTube Video URL">
+
+<button onclick="publishVideo()">Publish Video</button>
+
+<hr>
+
+<h3>Examination Control</h3>
+
+<button onclick="openExam()">Authorize Examination</button>
+<button onclick="closeExam()">Close Examination</button>
+
+<p id="adminMessage"></p>
+
+</div>
+</section>
+
+<footer>
+<h3>SUCCESS GATE JAMB & WAEC TUTORIAL</h3>
+<p>Excellence Through Learning</p>
+<p>© 2026 Success Gate Tutorial</p>
+</footer>
+
+<script>
+
+let examOpen = false;
+
+function registerStudent() {
+  let name = document.getElementById("studentName").value;
+  let email = document.getElementById("studentEmail").value;
+
+  if (!name || !email) {
+    alert("Please complete your registration.");
+    return;
+  }
+
+  document.getElementById("registrationMessage").innerText =
+    "Registration form completed. Welcome " + name + "!";
+}
+
+function loginAdmin() {
+  let pin = document.getElementById("adminPassword").value;
+
+  if (pin === "2468") {
+    document.getElementById("adminPanel").classList.remove("hidden");
+    alert("Admin dashboard opened.");
+  } else {
+    alert("Incorrect PIN.");
+  }
+}
+
+function publishLesson() {
+  let title = document.getElementById("lessonTitle").value;
+  let description = document.getElementById("lessonDescription").value;
+
+  if (!title || !description) {
+    alert("Complete the lesson details.");
+    return;
+  }
+
+  let lesson = document.createElement("div");
+  lesson.className = "card";
+  lesson.innerHTML = "<h3></h3><p></p>";
+  lesson.querySelector("h3").textContent = title;
+  lesson.querySelector("p").textContent = description;
+
+  document.getElementById("lessonList").appendChild(lesson);
+
+  document.getElementById("lessonTitle").value = "";
+  document.getElementById("lessonDescription").value = "";
+
+  document.getElementById("adminMessage").innerText =
+    "Lesson added to this browser.";
+}
+
+function publishVideo() {
+  let title = document.getElementById("videoTitle").value;
+  let url = document.getElementById("videoURL").value;
+
+  if (!title || !url) {
+    alert("Enter video title and URL.");
+    return;
+  }
+
+  let video = document.createElement("div");
+  video.className = "card";
+
+  let heading = document.createElement("h3");
+  heading.textContent = title;
+
+  let link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.textContent = "Watch Video Lesson";
+
+  video.appendChild(heading);
+  video.appendChild(link);
+
+  document.getElementById("videoList").appendChild(video);
+
+  document.getElementById("adminMessage").innerText =
+    "Video added to this browser.";
+}
+
+function openExam() {
+  examOpen = true;
+  document.getElementById("examStatus").innerText =
+    "Examination is now authorized.";
+}
+
+function closeExam() {
+  examOpen = false;
+  document.getElementById("examStatus").innerText =
+    "Examination is currently closed.";
+  document.getElementById("examArea").classList.add("hidden");
+}
+
+function startExam() {
+  if (!examOpen) {
+    alert("The administrator has not authorized this examination.");
+    return;
+  }
+
+  document.getElementById("examArea").classList.remove("hidden");
+}
+
+function submitExam() {
+  let answer = document.querySelector('input[name="answer"]:checked');
+
+  if (!answer) {
+    alert("Select an answer.");
+    return;
+  }
+
+  document.getElementById("examResult").innerText =
+    answer.value === "B" ? "Correct! Score: 1/1" : "Incorrect. Correct answer: School.";
+
+}
+
+</script>
+
+</body>
+</html>
