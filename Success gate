@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUCCESS GATE JAMB & WAEC TUTORIAL</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+header {
+    background: #063b27;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+nav {
+    background: #075c3b;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 15px;
+    background: white;
+}
+
+.hero h2 {
+    color: #063b27;
+    font-size: 28px;
+}
+
+button {
+    background: #087b4b;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    padding: 25px;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin: 15px auto;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #ddd;
+}
+
+footer {
+    background: #063b27;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>SUCCESS GATE</h1>
+<p>JAMB & WAEC TUTORIAL</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#cbt">CBT Examination</a>
+<a href="#lessons">Lessons</a>
+<a href="#about">About</a>
+</nav>
+
+<section class="hero" id="home">
+<h2>Welcome to Success Gate Tutorial</h2>
+<p>Your success in JAMB and WAEC begins here.</p>
+<p>Learn, practise and prepare for excellent results.</p>
+<button>Student Registration</button>
+</section>
+
+<div class="container" id="cbt">
+<h2>ONLINE CBT EXAMINATION</h2>
+<div class="card">
+<h3>JAMB Mock Examination</h3>
+<p>Practise with our JAMB-style computer-based tests.</p>
+<button>Enter CBT</button>
+</div>
+</div>
+
+<div class="container" id="lessons">
+<h2>ONLINE LESSONS</h2>
+<div class="card">
+<h3>Video Lessons</h3>
+<p>Access educational videos and learning materials.</p>
+<button>View Lessons</button>
+</div>
+<div class="card">
+<h3>Study Materials</h3>
+<p>Read notes and practise past questions.</p>
+<button>Read Materials</button>
+</div>
+</div>
+
+<div class="container" id="about">
+<h2>ABOUT US</h2>
+<p>SUCCESS GATE JAMB & WAEC TUTORIAL is committed to helping students achieve academic excellence.</p>
+</div>
+
+<footer>
+<p>© 2026 SUCCESS GATE JAMB & WAEC TUTORIAL</p>
+<p>Excellence Begins Here!</p>
+</footer>
+
+</body>
+</html>
